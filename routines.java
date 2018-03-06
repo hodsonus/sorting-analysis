@@ -39,7 +39,6 @@ public class routines {
     /* at this point, the wall is the divider between elements greater than the
     pivot and elements less than the pivot. since the pivot is the divider, we
     must place the pivot there. swap pivot and wall. */
-
     temp = arr[wall];
     arr[wall] = arr[right];
     arr[right] = temp;
@@ -63,49 +62,47 @@ public class routines {
   */
   public static int[] mergeSort(int[] arr) {
 
+    //abstract the length and check to see if we need to merge the lists together
     int length = arr.length;
     if (length < 2) return arr;
 
+    //create the right and the left arrays
     int mid = length/2;
     int[] left = new int[mid];
     int[] right = new int[length-mid];
 
+    //copy the elements inorder from arr into the left and right arrays
     for (int i = 0; i < mid; i++) left[i] = arr[i];
     for (int i = mid, j = 0; i < length; i++, j++) right[j] = arr[i];
 
-    System.out.println(main.toString(arr));
-    System.out.println();
+    //recursively call mergeSort to sort left and right seperately
+    mergeSort(left);
+    mergeSort(right);
 
-    System.out.println(main.toString(left));
-    System.out.println();
+    //merge the left and the right together
+    int i = 0, j = 0, k = 0;
+    while (i < left.length && j < right.length) {
 
-    System.out.println(main.toString(right));
-    System.out.println();
+      if (left[i] < right[j]) {
 
-    return null;
-    //
-    // mergeSort(left);
-    // mergeSort(right);
-    //
-    // int i = 0, j = 0, k = 0;
-    // while (i < left.length || j < right.length) {
-    //
-    //   if (left[i] < right[j]) {
-    //
-    //     arr[k++] = left[i++];
-    //   }
-    //   else if (left[i] > right[j]) {
-    //
-    //     arr[k++] = right[j++];
-    //   }
-    //   else if (left[i] == right[j]) {
-    //
-    //     arr[k++] = left[i++];
-    //     arr[k++] = right[j++];
-    //   }
-    // }
-    //
-    //
-    // return arr;
+        arr[k++] = left[i++];
+      }
+      else if (left[i] > right[j]) {
+
+        arr[k++] = right[j++];
+      }
+      else if (left[i] == right[j]) {
+
+        arr[k++] = left[i++];
+        arr[k++] = right[j++];
+      }
+    }
+
+    //these loops add any additional elements present in either the left or the right
+    while (i < left.length) arr[k++] = left[i++];
+    while (j < right.length) arr[k++] = right[j++];
+
+    //return the sorted array
+    return arr;
   }
 }

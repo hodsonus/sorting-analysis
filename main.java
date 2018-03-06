@@ -6,7 +6,7 @@ public class main {
 
     routines.mergeSort(arr);
 
-    // System.out.println(toString(arr));
+    System.out.println(toString(arr));
   }
 
   public static String toString(int[] arr) {
