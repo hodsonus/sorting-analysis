@@ -41,8 +41,6 @@ public class randomNums {
     }
 
     writer.close();
-
-    System.out.println("Success!");
   }
 
   public static void generateAscendingOrder(String fileName, int num) {
@@ -65,8 +63,6 @@ public class randomNums {
     }
 
     writer.close();
-
-    System.out.println("Success!");
   }
 
   public static void generateDescendingOrder(String fileName, int num) {
@@ -89,7 +85,5 @@ public class randomNums {
     }
 
     writer.close();
-
-    System.out.println("Success!");
   }
 }

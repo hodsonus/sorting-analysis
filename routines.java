@@ -105,4 +105,22 @@ public class routines {
     //return the sorted array
     return arr;
   }
+
+  public static String toString(int[] arr) {
+
+    String theString = "";
+
+    for (int i = 0; i < arr.length; i++) {
+
+      theString += arr[i] + "\t";
+
+      if (i != 0 && i%5 == 0) {
+
+        theString = theString.substring(0,theString.length()-1);
+        theString += "\n";
+      }
+    }
+
+    return theString.substring(0,theString.length()-1);
+  }
 }
