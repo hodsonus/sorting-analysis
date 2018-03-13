@@ -52,6 +52,36 @@ public class routines {
   }
 
   /*
+  this function implements the bubble sort algorithm to sort an array of integers.
+  paramaters:
+    int[] arr - the array of integers to be sorted
+  complexity:
+    average time - o(n^2)
+    worst time - o(n^2)
+    space - o(1)
+  */
+  public static void selectionSort(int[] arr) {
+
+    int temp, min;
+
+    for (int i = 0; i < arr.length-1; i++) {
+
+      min = i;
+
+      for (int j = i+1; j < arr.length; j++) {
+
+        if (arr[j] < arr[min]) min = j;
+      }
+
+      temp = arr[min];
+      arr[min] = arr[i];
+      arr[i] = temp;
+
+      }
+  
+  }
+
+  /*
   this function implements the merge sort algorithm to sort an array of integers.
   paramaters:
     int[] arr - the array of integers to be sorted
